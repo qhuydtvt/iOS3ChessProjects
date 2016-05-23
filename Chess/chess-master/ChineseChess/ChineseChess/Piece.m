@@ -12,22 +12,6 @@
 
 @implementation Piece
 
-- (instancetype)initWithPositionX:(NSInteger)positionX PositionY:(NSInteger)positionY Color:(PlayerColor) color; {
-    
-    self = [super init];
-    if(self) {
-        self.row = positionX;
-        self.column = positionY;
-        
-        self.playerColor = color;
-        self.minX = 0;
-        self.maxX = BOARD_WIDTH - 1;
-        self.minY = 0;
-        self.maxY = BOARD_HEIGHT - 1;
-    }
-    
-    return self;
-}
 
 - (instancetype)initWithX:(NSInteger)x Y:(NSInteger)y Color:(PlayerColor) color ; {
     

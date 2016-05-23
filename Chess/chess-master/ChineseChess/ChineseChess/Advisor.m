@@ -10,13 +10,14 @@
 
 @implementation Advisor
 
-- (id) initWithPositionX:(NSInteger)positionX PositionY:(NSInteger)positionY Color:(PlayerColor)color; {
-//    self = [super initWithPositionX:positionX PositionY:self.positionY Color:self.playerColor];
-    self = [super initWithPositionX:positionX PositionY:positionY Color:color];
-   
-//    if(self) {
-//        self.type = SY;
-//    }
+- (id) initAdvisorWithX:(NSInteger)x Y:(NSInteger)y MinY:(NSInteger)minY MaxY:(NSInteger)maxY Color:(PlayerColor)color {
+    self = [super initWithX:x Y:y Color:color];
+    if(self) {
+        self.maxY = maxY;
+        self.minY = minY;
+        self.minX = 3;
+        self.maxY = 5;
+    }
     
     return self;
 }
@@ -24,16 +25,7 @@
 - (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
     
     if(self.playerColor == RED) {
-        if(nextPositionX >= 3 && nextPositionX <= 5 && nextpositionY >= 7 && nextpositionY <= 9){
-            if([self checkMove:nextPositionX PositionY:nextpositionY]) {
-                return YES;
-            }else {
-                return NO;
-            }
-        }
-    }
-    else if(self.playerColor == BLACK) {
-        if(nextPositionX >= 3 && nextPositionX <= 5 && nextpositionY >= 0 && nextpositionY <= 2){
+        if(nextPositionX >= self.minX && nextPositionX <= self.maxX && nextpositionY >= self.minY && nextpositionY <= self.maxY){
             if([self checkMove:nextPositionX PositionY:nextpositionY]) {
                 return YES;
             }else {

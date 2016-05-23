@@ -27,7 +27,7 @@
 @property PlayerColor playerColor;
 
 
-- (id)initWithPositionX:(NSInteger)positionX PositionY:(NSInteger)positionY Color:(PlayerColor) color;
+- (instancetype)initWithX:(NSInteger)x Y:(NSInteger)y Color:(PlayerColor) color; 
 
 - (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)positionY;
 

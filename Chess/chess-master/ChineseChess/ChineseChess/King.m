@@ -11,6 +11,17 @@
 
 @implementation King
 
+- (id) initAdvisorWithX:(NSInteger)x Y:(NSInteger)y MinY:(NSInteger)minY MaxY:(NSInteger)maxY Color:(PlayerColor)color; {
+    self = [super initWithX:x Y:y Color:color];
+    if(self) {
+        self.maxY = maxY;
+        self.minY = minY;
+        self.maxX = 5;
+        self.minX = 3;
+    }
+    
+    return self;
+}
 
 - (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
     
