@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sheet_chat_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/chat_content_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/bottom_sheet_horizontal_margin"
+        android:paddingRight="@dimen/bottom_sheet_horizontal_margin"
+        >
+
+        <TextView
+            android:id="@+id/sheet_player_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conversation"
+            android:paddingTop="16dp"
+            android:paddingBottom="5dp"/>
+
+        <RelativeLayout
+            android:id="@+id/chat_input_layout_header"
+            android:clickable="false"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/dummyToGetFirstFocus"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="0px"
+                android:layout_height="0px"/>
+
+            <ImageView
+                android:id="@+id/sheet_comment_button"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Send"
+                android:visibility="visible"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_send_black" />
+
+            <EditText
+                android:id="@+id/sheet_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/sheet_comment_button"
+                android:layout_centerInParent="true"
+                android:hint="@string/chat_edit_text_hint"
+                android:enabled="true" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sheet_chat_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1">
+        <item
+            android:id="@+id/action_view_tables"
+            android:icon="@drawable/ic_action_tables"
+            android:title="@string/action_view_tables"
+            android:visible="false" /> <!-- Hidden by default -->
+        <!--<item
+            android:id="@+id/action_view_players"
+            android:icon="@drawable/ic_group_white"
+            android:title="@string/action_view_players" />-->
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/ic_exit_to_app_black"
+            android:title="@string/action_login"
+            android:visible="true" />
+    </group>
+
+    <item android:title="@string/version">
+        <menu>
+            <item
+                android:id="@+id/action_settings"
+                android:icon="@drawable/ic_settings_white"
+                android:title="@string/action_settings" />
+            <item
+                android:id="@+id/action_about"
+                android:icon="@drawable/ic_help_white"
+                android:title="@string/about_title" />
+            <item
+                android:id="@+id/action_www_playxiangqi"
+                android:icon="@drawable/ic_action_web_site"
+                android:title="@string/playxiangqi_website" />
+        </menu>
+    </item>
+
+</menu>

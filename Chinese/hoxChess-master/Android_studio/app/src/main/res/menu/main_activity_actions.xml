@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_new_table"
+          android:icon="@drawable/ic_action_new"
+          android:title="@string/action_new"
+          app:showAsAction="always" />
+
+    <item android:id="@+id/action_close_table"
+          android:title="@string/action_close"
+          android:icon="@drawable/ic_action_close_tables"
+          app:showAsAction="always" />
+
+    <item android:id="@+id/action_view_tables"
+          android:icon="@drawable/ic_action_tables"
+          android:title="@string/action_view_tables"
+          app:showAsAction="always" />
+
+    <!--<item android:id="@+id/action_view_players"
+          android:icon="@drawable/ic_group_white"
+          android:title="@string/action_view_players"
+          app:showAsAction="always" />-->
+
+    <!--  Notification item -->
+    <item android:id="@+id/action_notifications"
+          android:title="@string/notifications"
+          android:icon="@drawable/ic_menu_notifications"
+          app:showAsAction="always" />
+
+</menu>
