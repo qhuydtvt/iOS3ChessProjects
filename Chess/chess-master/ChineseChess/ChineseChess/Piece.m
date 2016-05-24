@@ -9,6 +9,7 @@
 #import "Piece.h"
 #import "BoardProvider.h"
 #import "BoardConfig.h"
+#import "Map.h"
 
 @implementation Piece
 
@@ -24,39 +25,57 @@
         self.maxX = BOARD_WIDTH - 1;
         self.minY = 0;
         self.maxY = BOARD_HEIGHT - 1;
+        
+        [self addPieceToBoard];
     }
     
     return self;
 }
 
+- (void)addPieceToBoard; {
+    [[Map shareInstance]addPiece:self];
+}
 
-- (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
+- (void)removePieceFromBoard; {
+    [[Map shareInstance]removePiece:self];
+}
+- (int)getCellFromBoard:(NSInteger)row Column:(NSInteger)column; {
+    return [[Map shareInstance]getCellWithRow:row Column:column];
+}
+
+
+- (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn; {
     
     /*  Check if next position is out of board */
-    if(nextPositionX < self.minX  || nextPositionX > self.maxX) {
+    if(nextRow < self.minX  || nextRow > self.maxX) {
         return NO;
     }
-    if(nextpositionY < self.minY || nextpositionY > self.maxY) {
+    if(nextColumn < self.minY || nextColumn > self.maxY) {
         return NO;
     }
-    
-    /* Check whether a piece with the same color is at next position */
-    PositionState positionState = [self.boardProvider getPieceColorAt:nextPositionX y:nextpositionY];
-    if(_playerColor == RED && positionState == POSITION_RED) {
+    if(nextRow == self.row && nextColumn == self.column) {
         return NO;
     }
     
-    if(_playerColor == BLACK && positionState == POSITION_BLACK) {
+    
+    if(_playerColor == RED && [self getCellFromBoard:nextRow Column:nextColumn] == 1) {
+        return NO;
+    }
+    
+    if(_playerColor == BLACK && [self getCellFromBoard:nextRow Column:nextColumn] == 2) {
         return NO;
     }
     
     return YES;
 }
 
-- (void)moveToPositionX:(NSInteger)positionX PositionY:(NSInteger)positionY; {
-    if([self checkMoveWithPositionX:positionX PositionY:positionY]) {
-        self.row = positionX;
-        self.column = positionY;
+- (void)moveToRow:(NSInteger)row Column:(NSInteger)column; {
+    /* before move remove old position in board, after move add new position to board */
+    if([self checkMoveWithRow:row Column:column]) {
+        [self removePieceFromBoard];
+        self.row = row;
+        self.column = column;
+        [self addPieceToBoard];
     }
 }
 

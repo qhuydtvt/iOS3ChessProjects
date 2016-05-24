@@ -8,6 +8,7 @@
 
 #import "King.h"
 #import "Utilities.h"
+#import "BoardConfig.h"
 
 @implementation King
 
@@ -16,20 +17,13 @@
     if(self) {
         self.maxY = maxY;
         self.minY = minY;
-        self.maxX = 5;
-        self.minX = 3;
+        self.minX = MIN_X;
+        self.maxY = MAX_X;
     }
     
     return self;
 }
 
-- (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
-    
-    if(self.row == nextPositionX) {
-        
-    }
-    return true;
-}
 
 
 

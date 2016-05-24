@@ -7,6 +7,8 @@
 //
 
 #import "Advisor.h"
+#import "BoardConfig.h"
+
 
 @implementation Advisor
 
@@ -15,39 +17,38 @@
     if(self) {
         self.maxY = maxY;
         self.minY = minY;
-        self.minX = 3;
-        self.maxY = 5;
+        self.minX = MIN_X;
+        self.maxY = MAX_X;
     }
     
     return self;
 }
 
-- (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
-    
-    if(self.playerColor == RED) {
-        if(nextPositionX >= self.minX && nextPositionX <= self.maxX && nextpositionY >= self.minY && nextpositionY <= self.maxY){
-            if([self checkMove:nextPositionX PositionY:nextpositionY]) {
-                return YES;
-            }else {
-                return NO;
-            }
-        }
-    }
-    
-    return NO;
-}
-
-
-- (BOOL)checkMove:(NSInteger)nextPositionX PositionY:(NSInteger)nextPositionY {
-    if(nextPositionX == self.row + 1 && ((nextPositionY == self.column + 1)
-                                               || (nextPositionY == self.column - 1))) {
-        return YES;
-    }else if(nextPositionX == self.row - 1 && ((nextPositionY == self.column + 1)
-                                                     || (nextPositionY == self.column - 1))) {
-        return YES;
-    }
-    
-    return FALSE;
-}
+//- (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)nextpositionY; {
+//    
+//    if(nextPositionX >= self.minX && nextPositionX <= self.maxX && nextpositionY >= self.minY && nextpositionY <= self.maxY){
+//        if([self checkMove:nextPositionX PositionY:nextpositionY]) {
+//            return YES;
+//        }else {
+//            return NO;
+//        }
+//    }
+//    
+//    
+//    return NO;
+//}
+//
+//
+//- (BOOL)checkMove:(NSInteger)nextPositionX PositionY:(NSInteger)nextPositionY {
+//    if(nextPositionX == self.row + 1 && ((nextPositionY == self.column + 1)
+//                                               || (nextPositionY == self.column - 1))) {
+//        return YES;
+//    }else if(nextPositionX == self.row - 1 && ((nextPositionY == self.column + 1)
+//                                                     || (nextPositionY == self.column - 1))) {
+//        return YES;
+//    }
+//    
+//    return FALSE;
+//}
 
 @end

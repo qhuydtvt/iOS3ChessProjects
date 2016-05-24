@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99CD410E1CF3F43A00ABDA43 /* Chariot.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CD410D1CF3F43A00ABDA43 /* Chariot.m */; };
+		99CD41111CF3F9F500ABDA43 /* Cannon.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CD41101CF3F9F500ABDA43 /* Cannon.m */; };
 		99E251301CF2107300D1430F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E2512F1CF2107300D1430F /* main.m */; };
 		99E251331CF2107300D1430F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E251321CF2107300D1430F /* AppDelegate.m */; };
 		99E251361CF2107300D1430F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E251351CF2107300D1430F /* ViewController.m */; };
@@ -19,13 +21,17 @@
 		99E251551CF2113700D1430F /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E251541CF2113700D1430F /* Piece.m */; };
 		99E251581CF2129C00D1430F /* King.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E251571CF2129C00D1430F /* King.m */; };
 		99E2515B1CF2194E00D1430F /* Advisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E2515A1CF2194E00D1430F /* Advisor.m */; };
-		99E2515F1CF21E1A00D1430F /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E2515E1CF21E1A00D1430F /* Utilities.m */; };
+		99F00CD71CF36B66002441FD /* Horse.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F00CD61CF36B66002441FD /* Horse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9928E54F1CF327CC0072CC28 /* BoardProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardProvider.h; sourceTree = "<group>"; };
 		9928E5511CF32A060072CC28 /* PlayerColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerColor.h; sourceTree = "<group>"; };
 		9928E5521CF330820072CC28 /* BoardConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardConfig.h; sourceTree = "<group>"; };
+		99CD410C1CF3F43A00ABDA43 /* Chariot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chariot.h; sourceTree = "<group>"; };
+		99CD410D1CF3F43A00ABDA43 /* Chariot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chariot.m; sourceTree = "<group>"; };
+		99CD410F1CF3F9F500ABDA43 /* Cannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cannon.h; sourceTree = "<group>"; };
+		99CD41101CF3F9F500ABDA43 /* Cannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cannon.m; sourceTree = "<group>"; };
 		99E2512B1CF2107300D1430F /* ChineseChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E2512F1CF2107300D1430F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99E251311CF2107300D1430F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,8 +54,8 @@
 		99E251571CF2129C00D1430F /* King.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = King.m; sourceTree = "<group>"; };
 		99E251591CF2194E00D1430F /* Advisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advisor.h; sourceTree = "<group>"; };
 		99E2515A1CF2194E00D1430F /* Advisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advisor.m; sourceTree = "<group>"; };
-		99E2515D1CF21E1A00D1430F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
-		99E2515E1CF21E1A00D1430F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		99F00CD51CF36B66002441FD /* Horse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horse.h; sourceTree = "<group>"; };
+		99F00CD61CF36B66002441FD /* Horse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Horse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +158,13 @@
 				99E251571CF2129C00D1430F /* King.m */,
 				99E251591CF2194E00D1430F /* Advisor.h */,
 				99E2515A1CF2194E00D1430F /* Advisor.m */,
+				99F00CD51CF36B66002441FD /* Horse.h */,
+				99F00CD61CF36B66002441FD /* Horse.m */,
+				99CD410C1CF3F43A00ABDA43 /* Chariot.h */,
+				99CD410D1CF3F43A00ABDA43 /* Chariot.m */,
+				99CD410F1CF3F9F500ABDA43 /* Cannon.h */,
+				99CD41101CF3F9F500ABDA43 /* Cannon.m */,
 				9928E54F1CF327CC0072CC28 /* BoardProvider.h */,
-				9928E5511CF32A060072CC28 /* PlayerColor.h */,
-				9928E5521CF330820072CC28 /* BoardConfig.h */,
 			);
 			name = Piece;
 			sourceTree = "<group>";
@@ -162,8 +172,8 @@
 		99E2515C1CF21E0100D1430F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				99E2515D1CF21E1A00D1430F /* Utilities.h */,
-				99E2515E1CF21E1A00D1430F /* Utilities.m */,
+				9928E5511CF32A060072CC28 /* PlayerColor.h */,
+				9928E5521CF330820072CC28 /* BoardConfig.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -239,11 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CD41111CF3F9F500ABDA43 /* Cannon.m in Sources */,
 				99E2514A1CF210C000D1430F /* GameObject.m in Sources */,
 				99E2514E1CF210EE00D1430F /* Map.m in Sources */,
+				99CD410E1CF3F43A00ABDA43 /* Chariot.m in Sources */,
+				99F00CD71CF36B66002441FD /* Horse.m in Sources */,
 				99E251361CF2107300D1430F /* ViewController.m in Sources */,
 				99E251331CF2107300D1430F /* AppDelegate.m in Sources */,
-				99E2515F1CF21E1A00D1430F /* Utilities.m in Sources */,
 				99E2515B1CF2194E00D1430F /* Advisor.m in Sources */,
 				99E251581CF2129C00D1430F /* King.m in Sources */,
 				99E251511CF2110000D1430F /* Player.m in Sources */,

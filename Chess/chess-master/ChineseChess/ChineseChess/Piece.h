@@ -13,8 +13,8 @@
 
 
 
-@interface Piece : NSObject
 
+@interface Piece : NSObject
 @property NSInteger row;
 @property NSInteger column;
 
@@ -29,8 +29,12 @@
 
 - (instancetype)initWithX:(NSInteger)x Y:(NSInteger)y Color:(PlayerColor) color; 
 
-- (BOOL)checkMoveWithPositionX:(NSInteger)nextPositionX PositionY:(NSInteger)positionY;
+- (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn;
 
-- (void)moveToPositionX:(NSInteger)positionX PositionY:(NSInteger)positionY;
+- (void)moveToRow:(NSInteger)row Column:(NSInteger)column;
+
+- (void)addPieceToBoard;
+- (void)removePieceFromBoard;
+- (int)getCellFromBoard:(NSInteger)row Column:(NSInteger)column;
 
 @end

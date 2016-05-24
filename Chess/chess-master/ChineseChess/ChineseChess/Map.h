@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Piece.h"
 
 @interface Map : NSObject
 
++ (Map *)shareInstance;
+- (void)addPiece:(Piece *)piece;
+- (void)removePiece:(Piece *)piece;
+- (int)getCellWithRow:(NSInteger)row Column:(NSInteger)column;
 @end
