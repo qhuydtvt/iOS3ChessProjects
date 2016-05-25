@@ -7,6 +7,7 @@
 //
 
 #import "Horse.h"
+#import "BoardConfig.h"
 
 @implementation Horse
 
@@ -14,16 +15,16 @@
     [super checkMoveWithRow:nextRow Column:nextColumn];
     
     if(labs(nextRow - self.row) == 2 && labs(nextColumn - self.column) == 1) {
-        if([self getCellFromBoard:self.row + 1 Column:self.column] == 0 ||
-           [self getCellFromBoard:self.row - 1 Column:self.column] == 0 ) {
+        if([self getCellFromBoard:self.row + 1 Column:self.column] == PIECE_EMPTY ||
+           [self getCellFromBoard:self.row - 1 Column:self.column] == PIECE_EMPTY ) {
             return YES;
         }else {
             return NO;
         }
     }
-    else if(labs(nextRow - self.row) == 1 && labs(nextColumn - self.column) == 2) {
-        if([self getCellFromBoard:self.row Column:self.column + 1] == 0 ||
-           [self getCellFromBoard:self.row Column:self.column - 1] == 0 ) {
+    else if(labs(nextRow - self.row) == 1 && labs(nextColumn - self.column) == 1) {
+        if([self getCellFromBoard:self.row Column:self.column + 1] == PIECE_EMPTY ||
+           [self getCellFromBoard:self.row Column:self.column - 1] == PIECE_EMPTY ) {
             return YES;
         }else {
             return NO;

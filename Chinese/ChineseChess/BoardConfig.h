@@ -15,4 +15,8 @@
 #define MIN_X 3;
 #define MAX_X 5;
 
+#define PIECE_RED 1
+#define PIECE_BLACK 2
+#define PIECE_EMPTY 0
+
 #endif /* BoardConfig_h */

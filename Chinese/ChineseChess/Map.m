@@ -9,6 +9,8 @@
 #import "Map.h"
 #import "BoardConfig.h"
 
+
+
 @implementation Map
 
 static id _instance = nil;
@@ -29,7 +31,7 @@ int board[BOARD_WIDTH][BOARD_HEIGHT];
     self = [super init];
     for(int i = 0; i < BOARD_WIDTH; i++) {
         for(int j = 0; j < BOARD_HEIGHT; j++) {
-            board[i][j] = 0;
+            board[i][j] = PIECE_EMPTY;
         }
     }
     return self;
@@ -39,10 +41,10 @@ int board[BOARD_WIDTH][BOARD_HEIGHT];
     /*  if piece is RED add 1 to board, if piece is BLACK add 2 to board  */
     if(piece) {
         if(piece.playerColor == RED) {
-            board[piece.row][piece.column] = 1;
+            board[piece.row][piece.column] = PIECE_RED;
         }
         else if(piece.playerColor == BLACK) {
-            board[piece.row][piece.column] = 2;
+            board[piece.row][piece.column] = PIECE_BLACK;
         }
 
     }
@@ -50,7 +52,7 @@ int board[BOARD_WIDTH][BOARD_HEIGHT];
 
 - (void)removePiece:(Piece *)piece; {
     if(piece) {
-        board[piece.row][piece.column] = 0;
+        board[piece.row][piece.column] = PIECE_EMPTY;
     }
 }
 
@@ -58,7 +60,6 @@ int board[BOARD_WIDTH][BOARD_HEIGHT];
    
     return board[row][column];
   
-    return -1;
 }
 
 
