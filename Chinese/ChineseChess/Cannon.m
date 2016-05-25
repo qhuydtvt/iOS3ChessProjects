@@ -7,6 +7,7 @@
 //
 
 #import "Cannon.h"
+#import "BoardConfig.h"
 
 @implementation Cannon
 
@@ -16,7 +17,7 @@
     if(nextColumn == self.column && nextRow != self.row) {
         if(nextRow > self.row) {
             for(int i = (int)self.row + 1; i < nextRow - 1; i++) {
-                if([self getCellFromBoard:i Column:self.column] != 0) {
+                if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY) {
                     return NO;
                 }
             }
@@ -24,7 +25,7 @@
         }
         else if(nextRow < self.row) {
             for(int i = (int)nextRow + 1; i < self.row - 1; i++) {
-                if([self getCellFromBoard:i Column:self.column] != 0) {
+                if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY) {
                     return NO;
                 }
             }
@@ -35,7 +36,7 @@
     else if(nextRow == self.row && nextColumn != self.self.column) {
         if(nextColumn > self.column) {
             for(int i = (int)self.column + 1; i < nextColumn - 1; i++) {
-                if([self getCellFromBoard:self.row Column:i] != 0) {
+                if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY) {
                     return NO;
                 }
             }
@@ -43,7 +44,7 @@
         }
         else if(nextColumn < self.column) {
             for(int i = (int)nextColumn + 1; i < self.column - 1; i++) {
-                if([self getCellFromBoard:self.row Column:i] != 0) {
+                if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY) {
                     return NO;
                 }
             }

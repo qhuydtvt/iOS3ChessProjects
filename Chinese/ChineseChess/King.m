@@ -7,7 +7,6 @@
 //
 
 #import "King.h"
-#import "Utilities.h"
 #import "BoardConfig.h"
 
 @implementation King

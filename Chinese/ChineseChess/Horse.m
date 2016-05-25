@@ -15,16 +15,16 @@
     [super checkMoveWithRow:nextRow Column:nextColumn];
     
     if(labs(nextRow - self.row) == 2 && labs(nextColumn - self.column) == 1) {
-        if([self getCellFromBoard:self.row + 1 Column:self.column] == PIECE_EMPTY ||
-           [self getCellFromBoard:self.row - 1 Column:self.column] == PIECE_EMPTY ) {
+        if(([self getCellFromBoard:self.row + 1 Column:self.column] == PIECE_EMPTY && nextRow - self.row > 0)||
+           ([self getCellFromBoard:self.row - 1 Column:self.column] == PIECE_EMPTY && nextRow - self.row < 0)) {
             return YES;
         }else {
             return NO;
         }
     }
     else if(labs(nextRow - self.row) == 1 && labs(nextColumn - self.column) == 2) {
-        if([self getCellFromBoard:self.row Column:self.column + 1] == PIECE_EMPTY ||
-           [self getCellFromBoard:self.row Column:self.column - 1] == PIECE_EMPTY ) {
+        if(([self getCellFromBoard:self.row Column:self.column + 1] == PIECE_EMPTY && nextColumn - self.column > 0) ||
+           ([self getCellFromBoard:self.row Column:self.column - 1] == PIECE_EMPTY && nextColumn - self.column < 0 )) {
             return YES;
         }else {
             return NO;
@@ -33,5 +33,6 @@
     
     return NO;
 }
+
 
 @end

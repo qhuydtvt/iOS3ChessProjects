@@ -9,8 +9,8 @@
 #ifndef BoardConfig_h
 #define BoardConfig_h
 
-#define BOARD_WIDTH 9
-#define BOARD_HEIGHT 10
+#define BOARD_ROW 10
+#define BOARD_COLUMN 9
 
 #define MIN_X 3;
 #define MAX_X 5;

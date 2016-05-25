@@ -12,46 +12,42 @@
 
 - (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn; {
     [super checkMoveWithRow:nextRow Column:nextColumn];
-    /* Move horizontal */
-    if(nextColumn == self.column && nextRow != self.row) {
-        if(nextRow > self.row) {
-            for(int i = (int)self.row + 1; i < nextRow; i++) {
-                if([self getCellFromBoard:i Column:self.column] != 0) {
-                    return NO;
-                }
-            }
-            return YES;
-        }
-        else if(nextRow < self.row) {
-            for(int i = (int)nextRow + 1; i < self.row; i++) {
-                if([self getCellFromBoard:i Column:self.column] != 0) {
-                    return NO;
-                }
-            }
-            return YES;
-        }
-    }
     /* Move vertical */
+    if(nextColumn == self.column && nextRow != self.row) {
+        [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
+    }
+    /* Move horizontal */
     else if(nextRow == self.row && nextColumn != self.self.column) {
-        if(nextColumn > self.column) {
-            for(int i = (int)self.column + 1; i < nextColumn; i++) {
-                if([self getCellFromBoard:self.row Column:i] != 0) {
-                    return NO;
-                }
-            }
-            return YES;
-        }
-        else if(nextColumn < self.column) {
-            for(int i = (int)nextColumn + 1; i < self.column; i++) {
-                if([self getCellFromBoard:self.row Column:i] != 0) {
-                    return NO;
-                }
-            }
-            return YES;
-        }
+        [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
     }
     
     return NO;
+}
+
+- (BOOL)checkBarrierWithPoint1:(NSInteger)point1 Point2:(NSInteger)point2 Direction:(NSString *)direction{
+    int start = 0;
+    int end = 0;
+    if(point1 < point2){
+        start = (int)point1;
+        end = (int)point2;
+    }else{
+        start = (int)point2;
+        end = (int)point1;
+    }
+    
+    
+    for(int i = start + 1; i < end; i++){
+        if([self getCellFromBoard:i Column:self.column] != 0 && [direction isEqualToString:@"vertical"]) {
+            return NO;
+        }
+        else if([self getCellFromBoard:self.row Column:i] != 0 && [direction isEqualToString:@"horizontal"]){
+            return NO;
+        }
+        
+    }
+    
+    
+    return YES;
 }
 
 @end

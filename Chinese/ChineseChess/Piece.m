@@ -22,9 +22,9 @@
         self.column = y;
         self.playerColor = color;
         self.minX = 0;
-        self.maxX = BOARD_WIDTH - 1;
+        self.maxX = BOARD_COLUMN - 1;
         self.minY = 0;
-        self.maxY = BOARD_HEIGHT - 1;
+        self.maxY = BOARD_ROW - 1;
         
         [self addPieceToBoard];
     }

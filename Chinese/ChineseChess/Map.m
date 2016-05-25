@@ -14,7 +14,7 @@
 @implementation Map
 
 static id _instance = nil;
-int board[BOARD_WIDTH][BOARD_HEIGHT];
+int board[BOARD_ROW][BOARD_COLUMN];
 
 + (Map *)shareInstance {
     static dispatch_once_t onceToken;
@@ -29,8 +29,8 @@ int board[BOARD_WIDTH][BOARD_HEIGHT];
 
 -(instancetype)init {
     self = [super init];
-    for(int i = 0; i < BOARD_WIDTH; i++) {
-        for(int j = 0; j < BOARD_HEIGHT; j++) {
+    for(int i = 0; i < BOARD_ROW; i++) {
+        for(int j = 0; j < BOARD_COLUMN; j++) {
             board[i][j] = PIECE_EMPTY;
         }
     }
