@@ -22,7 +22,7 @@
             return NO;
         }
     }
-    else if(labs(nextRow - self.row) == 1 && labs(nextColumn - self.column) == 1) {
+    else if(labs(nextRow - self.row) == 1 && labs(nextColumn - self.column) == 2) {
         if([self getCellFromBoard:self.row Column:self.column + 1] == PIECE_EMPTY ||
            [self getCellFromBoard:self.row Column:self.column - 1] == PIECE_EMPTY ) {
             return YES;
