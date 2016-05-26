@@ -19,4 +19,7 @@
 #define PIECE_BLACK 2
 #define PIECE_EMPTY 0
 
+#define DIRECTION_VERTICAL     @"vertical"
+#define DIRECTION_HORIZONTAL   @"horizontal"
+
 #endif /* BoardConfig_h */

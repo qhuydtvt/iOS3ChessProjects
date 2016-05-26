@@ -9,6 +9,8 @@
 #import "Cannon.h"
 #import "BoardConfig.h"
 
+
+
 @implementation Cannon
 
 - (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn; {
@@ -18,22 +20,22 @@
     if([self getCellFromBoard:nextRow Column:nextColumn] != PIECE_EMPTY) {
         /* Move vertical */
         if(nextColumn == self.column && nextRow != self.row) {
-            canMove = [self checkEatWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
+            canMove = [self checkEatWithPoint1:self.row Point2:nextRow Direction:DIRECTION_VERTICAL];
         }
         /* Move horizontal */
         else if(nextRow == self.row && nextColumn != self.self.column) {
-            canMove = [self checkEatWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
+            canMove = [self checkEatWithPoint1:self.column Point2:nextColumn Direction:DIRECTION_HORIZONTAL];
         };
         
     }
     else if([self getCellFromBoard:nextRow Column:nextColumn] == PIECE_EMPTY) {
         /* Move vertical */
         if(nextColumn == self.column && nextRow != self.row) {
-            canMove = [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
+            canMove = [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:DIRECTION_VERTICAL];
         }
         /* Move horizontal */
         else if(nextRow == self.row && nextColumn != self.self.column) {
-            canMove = [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
+            canMove = [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:DIRECTION_HORIZONTAL];
         }
     }
     
@@ -55,10 +57,10 @@
     int count = 0;
     
     for(int i = start + 1; i < end; i++){
-        if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY && [direction isEqualToString:@"vertical"]) {
+        if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY && [direction isEqualToString:DIRECTION_VERTICAL]) {
             count ++;
         }
-        else if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY && [direction isEqualToString:@"horizontal"]){
+        else if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY && [direction isEqualToString:DIRECTION_HORIZONTAL]){
             count ++;
         }
         

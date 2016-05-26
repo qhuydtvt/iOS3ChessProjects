@@ -92,7 +92,7 @@
 				99E251321CF2107300D1430F /* AppDelegate.m */,
 				99E2515C1CF21E0100D1430F /* Utilities */,
 				99E251471CF2109E00D1430F /* Controller */,
-				99E251461CF2109700D1430F /* View */,
+				99E251461CF2109700D1430F /* Game Manager */,
 				99E251451CF2108C00D1430F /* Model */,
 				99E251371CF2107300D1430F /* Main.storyboard */,
 				99E2513A1CF2107300D1430F /* Assets.xcassets */,
@@ -122,13 +122,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		99E251461CF2109700D1430F /* View */ = {
+		99E251461CF2109700D1430F /* Game Manager */ = {
 			isa = PBXGroup;
 			children = (
 				99E2514C1CF210EE00D1430F /* Map.h */,
 				99E2514D1CF210EE00D1430F /* Map.m */,
 			);
-			name = View;
+			name = "Game Manager";
 			sourceTree = "<group>";
 		};
 		99E251471CF2109E00D1430F /* Controller */ = {
