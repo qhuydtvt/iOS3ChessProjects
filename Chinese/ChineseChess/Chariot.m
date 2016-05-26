@@ -7,21 +7,23 @@
 //
 
 #import "Chariot.h"
+#import "BoardConfig.h"
 
 @implementation Chariot
 
 - (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn; {
     [super checkMoveWithRow:nextRow Column:nextColumn];
+    BOOL canMove = NO;
     /* Move vertical */
     if(nextColumn == self.column && nextRow != self.row) {
-        [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
+        canMove = [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
     }
     /* Move horizontal */
     else if(nextRow == self.row && nextColumn != self.self.column) {
-        [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
+        canMove = [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
     }
     
-    return NO;
+    return canMove;
 }
 
 - (BOOL)checkBarrierWithPoint1:(NSInteger)point1 Point2:(NSInteger)point2 Direction:(NSString *)direction{
@@ -37,10 +39,10 @@
     
     
     for(int i = start + 1; i < end; i++){
-        if([self getCellFromBoard:i Column:self.column] != 0 && [direction isEqualToString:@"vertical"]) {
+        if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY && [direction isEqualToString:@"vertical"]) {
             return NO;
         }
-        else if([self getCellFromBoard:self.row Column:i] != 0 && [direction isEqualToString:@"horizontal"]){
+        else if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY && [direction isEqualToString:@"horizontal"]){
             return NO;
         }
         

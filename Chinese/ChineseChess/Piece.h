@@ -11,9 +11,6 @@
 #import "BoardProvider.h"
 
 
-
-
-
 @interface Piece : NSObject
 @property NSInteger row;
 @property NSInteger column;

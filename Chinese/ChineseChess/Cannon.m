@@ -13,47 +13,93 @@
 
 - (BOOL)checkMoveWithRow:(NSInteger)nextRow Column:(NSInteger)nextColumn; {
     [super checkMoveWithRow:nextRow Column:nextColumn];
-    /* Move horizontal */
-    if(nextColumn == self.column && nextRow != self.row) {
-        if(nextRow > self.row) {
-            for(int i = (int)self.row + 1; i < nextRow - 1; i++) {
-                if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY) {
-                    return NO;
-                }
-            }
-            return YES;
+    BOOL canMove = NO;
+    
+    if([self getCellFromBoard:nextRow Column:nextColumn] != PIECE_EMPTY) {
+        /* Move vertical */
+        if(nextColumn == self.column && nextRow != self.row) {
+            canMove = [self checkEatWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
         }
-        else if(nextRow < self.row) {
-            for(int i = (int)nextRow + 1; i < self.row - 1; i++) {
-                if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY) {
-                    return NO;
-                }
-            }
-            return YES;
-        }
+        /* Move horizontal */
+        else if(nextRow == self.row && nextColumn != self.self.column) {
+            canMove = [self checkEatWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
+        };
+        
     }
-    /* Move vertical */
-    else if(nextRow == self.row && nextColumn != self.self.column) {
-        if(nextColumn > self.column) {
-            for(int i = (int)self.column + 1; i < nextColumn - 1; i++) {
-                if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY) {
-                    return NO;
-                }
-            }
-            return YES;
+    else if([self getCellFromBoard:nextRow Column:nextColumn] == PIECE_EMPTY) {
+        /* Move vertical */
+        if(nextColumn == self.column && nextRow != self.row) {
+            canMove = [self checkBarrierWithPoint1:self.row Point2:nextRow Direction:@"vertical"];
         }
-        else if(nextColumn < self.column) {
-            for(int i = (int)nextColumn + 1; i < self.column - 1; i++) {
-                if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY) {
-                    return NO;
-                }
-            }
-            return YES;
+        /* Move horizontal */
+        else if(nextRow == self.row && nextColumn != self.self.column) {
+            canMove = [self checkBarrierWithPoint1:self.column Point2:nextColumn Direction:@"horizontal"];
         }
     }
     
-    return NO;
+    return canMove;
 
 }
+
+- (BOOL)checkEatWithPoint1:(NSInteger)point1 Point2:(NSInteger)point2 Direction:(NSString *)direction{
+    int start = 0;
+    int end = 0;
+    if(point1 < point2){
+        start = (int)point1;
+        end = (int)point2;
+    }else{
+        start = (int)point2;
+        end = (int)point1;
+    }
+    
+    int count = 0;
+    
+    for(int i = start + 1; i < end; i++){
+        if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY && [direction isEqualToString:@"vertical"]) {
+            count ++;
+        }
+        else if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY && [direction isEqualToString:@"horizontal"]){
+            count ++;
+        }
+        
+    }
+    
+    if(count == 1){
+        return YES;
+    }else {
+        return NO;
+    }
+    
+}
+
+
+- (BOOL)checkBarrierWithPoint1:(NSInteger)point1 Point2:(NSInteger)point2 Direction:(NSString *)direction{
+    int start = 0;
+    int end = 0;
+    if(point1 < point2){
+        start = (int)point1;
+        end = (int)point2;
+    }else{
+        start = (int)point2;
+        end = (int)point1;
+    }
+    
+    
+    for(int i = start + 1; i < end; i++){
+        if([self getCellFromBoard:i Column:self.column] != PIECE_EMPTY && [direction isEqualToString:@"vertical"]) {
+            return NO;
+        }
+        else if([self getCellFromBoard:self.row Column:i] != PIECE_EMPTY && [direction isEqualToString:@"horizontal"]){
+            return NO;
+        }
+        
+    }
+    
+    
+    return YES;
+}
+
+
+
 
 @end
