@@ -13,9 +13,10 @@
 		E931E7F01CF37F4C003FE9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E931E7EE1CF37F4C003FE9AC /* Main.storyboard */; };
 		E931E7F21CF37F4C003FE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E931E7F11CF37F4C003FE9AC /* Assets.xcassets */; };
 		E931E7F51CF37F4C003FE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E931E7F31CF37F4C003FE9AC /* LaunchScreen.storyboard */; };
-		E931E7FF1CF39371003FE9AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E931E7FE1CF39371003FE9AC /* CoreData.framework */; };
 		E931E8011CF393B7003FE9AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E931E8001CF393B7003FE9AC /* UIKit.framework */; };
 		E931E8031CF393E8003FE9AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E931E8021CF393E8003FE9AC /* Foundation.framework */; };
+		E937FA1E1CFA98AF00F38E3F /* Logo.Png in Resources */ = {isa = PBXBuildFile; fileRef = E937FA1D1CFA98AF00F38E3F /* Logo.Png */; };
+		E937FA201CFA993D00F38E3F /* Anh-troll-dau-an-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E937FA1F1CFA993D00F38E3F /* Anh-troll-dau-an-3.jpg */; };
 		E94A206A1CF46F9200ABE4EC /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = E94A20691CF46F9200ABE4EC /* Stone.m */; };
 		E94A20701CF4B3C100ABE4EC /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = E94A206F1CF4B3C100ABE4EC /* Game.m */; };
 		E94A20731CF4BE4600ABE4EC /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94A20721CF4BE4600ABE4EC /* GameViewController.m */; };
@@ -37,9 +38,10 @@
 		E931E7F11CF37F4C003FE9AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E931E7F41CF37F4C003FE9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E931E7F61CF37F4C003FE9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E931E7FE1CF39371003FE9AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E931E8001CF393B7003FE9AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E931E8021CF393E8003FE9AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E937FA1D1CFA98AF00F38E3F /* Logo.Png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.Png; sourceTree = "<group>"; };
+		E937FA1F1CFA993D00F38E3F /* Anh-troll-dau-an-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Anh-troll-dau-an-3.jpg"; sourceTree = "<group>"; };
 		E94A20681CF46F9200ABE4EC /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stone.h; sourceTree = "<group>"; };
 		E94A20691CF46F9200ABE4EC /* Stone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stone.m; sourceTree = "<group>"; };
 		E94A206E1CF4B3C100ABE4EC /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -62,7 +64,6 @@
 			files = (
 				E931E8031CF393E8003FE9AC /* Foundation.framework in Frameworks */,
 				E931E8011CF393B7003FE9AC /* UIKit.framework in Frameworks */,
-				E931E7FF1CF39371003FE9AC /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +79,8 @@
 				E931E8081CF3958B003FE9AC /* Frameworks */,
 				E931E7E41CF37F4B003FE9AC /* Go Game */,
 				E931E7E31CF37F4B003FE9AC /* Products */,
+				E937FA1F1CFA993D00F38E3F /* Anh-troll-dau-an-3.jpg */,
+				E937FA1D1CFA98AF00F38E3F /* Logo.Png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,7 +131,6 @@
 			children = (
 				E931E8021CF393E8003FE9AC /* Foundation.framework */,
 				E931E8001CF393B7003FE9AC /* UIKit.framework */,
-				E931E7FE1CF39371003FE9AC /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,9 +197,11 @@
 				E9E7F8AB1CF63070007BEC40 /* Game Rule in Resources */,
 				E9E7F8A91CF62836007BEC40 /* Goban.png in Resources */,
 				E931E7F21CF37F4C003FE9AC /* Assets.xcassets in Resources */,
+				E937FA1E1CFA98AF00F38E3F /* Logo.Png in Resources */,
 				E931E7F01CF37F4C003FE9AC /* Main.storyboard in Resources */,
 				E9FDAC9E1CF5C26C0003D7F3 /* whiteStone.png in Resources */,
 				E9FDAC9C1CF5C26C0003D7F3 /* blackStone.png in Resources */,
+				E937FA201CFA993D00F38E3F /* Anh-troll-dau-an-3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
