@@ -16,7 +16,7 @@
 @property (nonatomic) BOOL currentlyMarkingStonesAsDead;
 @property int count;
 @property ChatRoomViewController *socketRoom;
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @end
 
 @implementation GameViewController
@@ -24,34 +24,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.socketRoom = [[ChatRoomViewController alloc] initWithUserName:self.username room:@"co_vay_01"];
+    self.socketRoom = [[ChatRoomViewController alloc] initWithUserName:self.username room:@"co_vay_1796"];
     [self.socketRoom startSocket];
     self.socketRoom.delegate = self;
-    [self.view setUserInteractionEnabled:YES];
+    //[self.view setUserInteractionEnabled:YES];
     self.game = [[Game alloc] init];
     [self layoutInterface];
     _count = 0;
     [self startTimer];
     [self customNavigation];
-    NSDictionary *dictData = @{@"otherId": self.socketRoom.userName};
-    NSString *strData = [Utils stringJSONByDictionary:dictData];
-    [self.socketRoom.socket emit:@"type" withItems:@[strData, self.socketRoom.roomName, self.socketRoom.userName]];
-
+    
 }
 
 - (void) handleMessage:(NSDictionary *)val;
 {
     NSLog(@"ANOTHER USER SEND YOU MESSAGE %@", val);
     NSDictionary *dictValue = [Utils dictByJSONString:val[@"message"]];
-    NSDictionary *dictValue2 = [Utils dictByJSONString:val[@"type"]];
-    
     int rowValue = [dictValue[@"rowValue"] intValue];
     int columnValue = [dictValue[@"columValue"] intValue];
-    NSString *colorValue = dictValue[@"colorValue"];
-    NSString *otherId = dictValue2[@"otherId"];
-    if(![otherId isEqualToString:self.socketRoom.userName]) {
-        [self.view setUserInteractionEnabled:YES];
-    }
+    NSString *otherId = dictValue[@"ownerId"];
+ //   NSString *colorValue = dictValue[@"colorValue"];
     if (self.currentlyMarkingStonesAsDead && [self.game isInBounds:rowValue andForColumnValue:columnValue]) {
         /*
          * Marking stones as dead
@@ -71,7 +63,10 @@
             [self playMoveAtRow:rowValue column:columnValue forColor:GobanWhiteSpotString];
         }
     }
-    
+
+    if(![otherId isEqualToString:self.socketRoom.userName]) {
+        [self.view setUserInteractionEnabled:YES];
+    }
 }
 
 #pragma mark - UIGestureRecognizers
@@ -84,8 +79,8 @@
         rowValue = (int)floor(touchPoint.x / stoneSize);
         columnValue = (int)floor((touchPoint.y - GobanMiddleOffsetSize) / stoneSize);
     }
-    NSString *colorType = self.game.turn;
-    
+   // NSString *colorType = self.game.turn;
+    NSLog(@"%@", self.game.turn);
     if (self.currentlyMarkingStonesAsDead && [self.game isInBounds:rowValue andForColumnValue:columnValue]) {
         /*
          * Marking stones as dead
@@ -105,14 +100,17 @@
             [self playMoveAtRow:rowValue column:columnValue forColor:GobanWhiteSpotString];
         }
     }
-    
-    NSDictionary *dictData = @{@"rowValue": @(rowValue),  @"columValue": @(columnValue), @"colorValue": colorType};
+    NSDictionary *dictData = @{@"rowValue": @(rowValue),  @"columValue": @(columnValue),@"ownerId": self.socketRoom.userName};
+   //  NSDictionary *dictData2 = @{@"ownerId": self.socketRoom.userName};
     NSString *strData = [Utils stringJSONByDictionary:dictData];
-    
+   // NSString *strData2 = [Utils stringJSONByDictionary:dictData2];
     [self.socketRoom.socket emit:@"message" withItems:@[strData, self.socketRoom.roomName, self.socketRoom.userName]];
-    
+   // [self.socketRoom.socket emit:@"owner_id" withItems:@[strData2, self.socketRoom.roomName, self.socketRoom.userName]];
+
+    [self.view setUserInteractionEnabled:NO];
     [Goban printBoardToConsole:self.game.goban];
     _count++;
+    
     if(_count == 361){
         [self scoreGame];
         [_gameClock invalidate];
@@ -375,7 +373,7 @@
 }
 
 - (void) btnPlayAgainTouchUpInside : (id) sender {
-    [self viewDidLoad];
+   [self viewDidLoad];
 }
 
 #pragma mark - Game Clock

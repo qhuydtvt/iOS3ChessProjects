@@ -22,7 +22,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyBoardWhenTap:)];
     [self.view addGestureRecognizer:tap];
     tap.cancelsTouchesInView = NO;
-    self.txtUsername.text = @"Hung";
+    //self.txtUsername.text = @"Hung";
 }
 
 - (void)didReceiveMemoryWarning {
